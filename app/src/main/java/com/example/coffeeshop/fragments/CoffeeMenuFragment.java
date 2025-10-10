@@ -52,11 +52,6 @@ public class CoffeeMenuFragment extends Fragment {
         binding.recyclerCoffee.setLayoutManager(new LinearLayoutManager(getContext()));
         coffeeAdapter = new CoffeeAdapter(null);
         binding.recyclerCoffee.setAdapter(coffeeAdapter);
-
-        // Обработчик клика по элементу (без уведомлений)
-        coffeeAdapter.setOnCoffeeItemClickListener(coffeeItem -> {
-            // Здесь можно добавить логику для детального просмотра или заказа
-        });
     }
 
     private void loadCoffeeItems() {

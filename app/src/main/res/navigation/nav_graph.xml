@@ -45,6 +45,10 @@
             android:id="@+id/action_coffee_menu_to_about"
             app:destination="@id/AboutFragment" />
 
+        <action
+            android:id="@+id/action_coffee_menu_to_coffee_detail"
+            app:destination="@id/CoffeeDetailFragment" />
+
     </fragment>
 
     <!-- О программе -->
@@ -86,6 +90,23 @@
         <action
             android:id="@+id/action_cart_to_about"
             app:destination="@id/AboutFragment" />
+
+    </fragment>
+
+    <!-- Детальный просмотр кофе -->
+    <fragment
+        android:id="@+id/CoffeeDetailFragment"
+        android:name="com.example.coffeeshop.fragments.CoffeeDetailFragment"
+        android:label="Детали"
+        tools:layout="@layout/fragment_coffee_detail">
+
+        <action
+            android:id="@+id/action_coffee_detail_to_coffee_menu"
+            app:destination="@id/CoffeeMenuFragment" />
+
+        <action
+            android:id="@+id/action_coffee_detail_to_cart"
+            app:destination="@id/CartFragment" />
 
     </fragment>
 

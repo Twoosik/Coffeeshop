@@ -1,10 +1,12 @@
 package com.example.coffeeshop.adapters;
 
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.coffeeshop.R;
 import com.example.coffeeshop.databinding.ItemCoffeeBinding;
@@ -18,18 +20,9 @@ import java.util.Locale;
 public class CoffeeAdapter extends RecyclerView.Adapter<CoffeeAdapter.CoffeeViewHolder> {
 
     private List<CoffeeItem> coffeeItems;
-    private OnCoffeeItemClickListener listener;
-
-    public interface OnCoffeeItemClickListener {
-        void onCoffeeItemClick(CoffeeItem coffeeItem);
-    }
 
     public CoffeeAdapter(List<CoffeeItem> coffeeItems) {
         this.coffeeItems = coffeeItems;
-    }
-
-    public void setOnCoffeeItemClickListener(OnCoffeeItemClickListener listener) {
-        this.listener = listener;
     }
 
     public void updateCoffeeItems(List<CoffeeItem> newCoffeeItems) {
@@ -73,11 +66,12 @@ public class CoffeeAdapter extends RecyclerView.Adapter<CoffeeAdapter.CoffeeView
             binding.coffeePrice.setText(String.format(Locale.getDefault(), "%.0f ₽", coffeeItem.getPrice()));
             binding.coffeeCategory.setText(getCategoryText(coffeeItem.getCategory()));
 
-            // Обработчик клика
+            // Обработчик клика - переход к детальному просмотру
             binding.getRoot().setOnClickListener(v -> {
-                if (listener != null) {
-                    listener.onCoffeeItemClick(coffeeItem);
-                }
+                // Передаем данные о кофе через Bundle
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("coffee_item", coffeeItem);
+                Navigation.findNavController(v).navigate(R.id.action_coffee_menu_to_coffee_detail, bundle);
             });
         }
 

@@ -3,12 +3,13 @@ package com.example.coffeeshop.model;
 import androidx.room.Entity;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
+import java.io.Serializable;
 
 /**
  * Модель кофе для меню кофейни
  */
 @Entity(tableName = "coffee_items")
-public class CoffeeItem {
+public class CoffeeItem implements Serializable {
     @PrimaryKey(autoGenerate = true)
     private int id;
     
