@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment;
 import com.example.coffeeshop.R;
 import com.example.coffeeshop.databinding.FragmentCoffeeDetailBinding;
 import com.example.coffeeshop.model.CoffeeItem;
+import com.example.coffeeshop.utils.ToastUtils;
 
 /**
  * Фрагмент для детального просмотра информации о кофе
@@ -87,7 +88,7 @@ public class CoffeeDetailFragment extends Fragment {
                 ingredients = "• Эспрессо\n• Молоко (1:1)";
                 break;
             case "Фраппучино":
-                ingredients = "• Кофе\n• Молоко\n• Лед\n• Сахарный сироп";
+                ingredients = "• Эспрессо\n• Молоко\n• Лед\n• Сахарный сироп\n• Взбитые сливки";
                 break;
             case "Айс-кофе":
                 ingredients = "• Кофе\n• Лед\n• Сахар (по желанию)";
@@ -126,8 +127,7 @@ public class CoffeeDetailFragment extends Fragment {
 
     private void setupAddToCartButton() {
         binding.btnAddToCart.setOnClickListener(v -> {
-            // TODO: Добавить логику добавления в корзину
-            // Пока что просто показываем, что кнопка нажата
+            ToastUtils.showAddedToCart(getContext(), coffeeItem.getName());
         });
     }
 
