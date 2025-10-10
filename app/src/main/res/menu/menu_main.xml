@@ -2,9 +2,29 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.example.coffeeshop.MainActivity">
+    
+    <item
+        android:id="@+id/action_about"
+        android:orderInCategory="100"
+        android:title="@string/menu_about"
+        app:showAsAction="never" />
+    
+    <item
+        android:id="@+id/action_instructions"
+        android:orderInCategory="200"
+        android:title="@string/menu_instructions"
+        app:showAsAction="never" />
+    
+    <item
+        android:id="@+id/action_author"
+        android:orderInCategory="300"
+        android:title="@string/menu_author"
+        app:showAsAction="never" />
+    
     <item
         android:id="@+id/action_settings"
-        android:orderInCategory="100"
-        android:title="@string/action_settings"
+        android:orderInCategory="400"
+        android:title="@string/menu_settings"
         app:showAsAction="never" />
+        
 </menu>

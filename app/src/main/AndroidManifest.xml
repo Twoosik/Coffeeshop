@@ -19,7 +19,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Coffeeshop">
         <activity
-            android:name=".MainActivity"
+            android:name=".activities.LoginActivity"
             android:exported="true"
             android:theme="@style/Theme.Coffeeshop">
             <intent-filter>
@@ -28,6 +28,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        
+        <activity
+            android:name=".MainActivity"
+            android:exported="false"
+            android:theme="@style/Theme.Coffeeshop" />
     </application>
 
 </manifest>

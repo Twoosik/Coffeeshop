@@ -3,26 +3,83 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/FirstFragment">
+    app:startDestination="@id/HomeFragment">
 
+    <!-- Главный экран -->
     <fragment
-        android:id="@+id/FirstFragment"
-        android:name="com.example.coffeeshop.FirstFragment"
-        android:label="@string/first_fragment_label"
-        tools:layout="@layout/fragment_first">
+        android:id="@+id/HomeFragment"
+        android:name="com.example.coffeeshop.fragments.HomeFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_home">
 
         <action
-            android:id="@+id/action_FirstFragment_to_SecondFragment"
-            app:destination="@id/SecondFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/SecondFragment"
-        android:name="com.example.coffeeshop.SecondFragment"
-        android:label="@string/second_fragment_label"
-        tools:layout="@layout/fragment_second">
+            android:id="@+id/action_home_to_coffee_menu"
+            app:destination="@id/CoffeeMenuFragment" />
 
         <action
-            android:id="@+id/action_SecondFragment_to_FirstFragment"
-            app:destination="@id/FirstFragment" />
+            android:id="@+id/action_home_to_about"
+            app:destination="@id/AboutFragment" />
+
+        <action
+            android:id="@+id/action_home_to_instructions"
+            app:destination="@id/InstructionsFragment" />
+
+        <action
+            android:id="@+id/action_home_to_author"
+            app:destination="@id/AuthorFragment" />
+
     </fragment>
+
+    <!-- Меню кофе -->
+    <fragment
+        android:id="@+id/CoffeeMenuFragment"
+        android:name="com.example.coffeeshop.fragments.CoffeeMenuFragment"
+        android:label="@string/menu_coffee"
+        tools:layout="@layout/fragment_coffee_menu">
+
+        <action
+            android:id="@+id/action_coffee_menu_to_home"
+            app:destination="@id/HomeFragment" />
+
+    </fragment>
+
+    <!-- О программе -->
+    <fragment
+        android:id="@+id/AboutFragment"
+        android:name="com.example.coffeeshop.fragments.AboutFragment"
+        android:label="@string/menu_about"
+        tools:layout="@layout/fragment_about">
+
+        <action
+            android:id="@+id/action_about_to_home"
+            app:destination="@id/HomeFragment" />
+
+    </fragment>
+
+    <!-- Инструкция -->
+    <fragment
+        android:id="@+id/InstructionsFragment"
+        android:name="com.example.coffeeshop.fragments.InstructionsFragment"
+        android:label="@string/menu_instructions"
+        tools:layout="@layout/fragment_instructions">
+
+        <action
+            android:id="@+id/action_instructions_to_home"
+            app:destination="@id/HomeFragment" />
+
+    </fragment>
+
+    <!-- Об авторе -->
+    <fragment
+        android:id="@+id/AuthorFragment"
+        android:name="com.example.coffeeshop.fragments.AuthorFragment"
+        android:label="@string/menu_author"
+        tools:layout="@layout/fragment_author">
+
+        <action
+            android:id="@+id/action_author_to_home"
+            app:destination="@id/HomeFragment" />
+
+    </fragment>
+
 </navigation>

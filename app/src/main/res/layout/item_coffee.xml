@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="8dp"
+    android:layout_marginVertical="4dp"
+    app:cardBackgroundColor="@color/white"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="4dp"
+    tools:ignore="MissingPrefix">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <!-- Изображение кофе -->
+        <ImageView
+            android:id="@+id/coffee_image"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:background="@drawable/coffee_image_background"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Название кофе -->
+        <TextView
+            android:id="@+id/coffee_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="8dp"
+            android:text="Эспрессо"
+            android:textColor="@color/text_primary"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@id/coffee_price"
+            app:layout_constraintStart_toEndOf="@id/coffee_image"
+            app:layout_constraintTop_toTopOf="@id/coffee_image"
+            tools:text="Эспрессо" />
+
+        <!-- Цена -->
+        <TextView
+            android:id="@+id/coffee_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/price_background"
+            android:paddingHorizontal="12dp"
+            android:paddingVertical="4dp"
+            android:text="120 ₽"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/coffee_image"
+            tools:text="120 ₽" />
+
+        <!-- Описание -->
+        <TextView
+            android:id="@+id/coffee_description"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="Классический крепкий кофе"
+            android:textColor="@color/text_secondary"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/coffee_image"
+            app:layout_constraintTop_toBottomOf="@id/coffee_name"
+            tools:text="Классический крепкий кофе" />
+
+        <!-- Категория -->
+        <TextView
+            android:id="@+id/coffee_category"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/category_background"
+            android:paddingHorizontal="8dp"
+            android:paddingVertical="2dp"
+            android:text="Горячий"
+            android:textColor="@color/text_secondary"
+            android:textSize="12sp"
+            app:layout_constraintStart_toEndOf="@id/coffee_image"
+            app:layout_constraintTop_toBottomOf="@id/coffee_description"
+            tools:text="Горячий" />
+
+        <!-- Индикатор доступности -->
+        <View
+            android:id="@+id/availability_indicator"
+            android:layout_width="8dp"
+            android:layout_height="8dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/availability_indicator"
+            app:layout_constraintBottom_toBottomOf="@id/coffee_image"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/coffee_image" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>
