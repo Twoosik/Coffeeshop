@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.coffeeshop.R;
 import com.example.coffeeshop.databinding.ItemCoffeeBinding;
 import com.example.coffeeshop.model.CoffeeItem;
+import com.example.coffeeshop.utils.CartManager;
 import com.example.coffeeshop.utils.ToastUtils;
 import java.util.List;
 import java.util.Locale;
@@ -78,6 +79,7 @@ public class CoffeeAdapter extends RecyclerView.Adapter<CoffeeAdapter.CoffeeView
             // Обработчик клика по цене - добавление в корзину
             binding.coffeePrice.setOnClickListener(v -> {
                 Context context = v.getContext();
+                CartManager.getInstance().addItem(coffeeItem);
                 ToastUtils.showAddedToCart(context, coffeeItem.getName());
             });
         }

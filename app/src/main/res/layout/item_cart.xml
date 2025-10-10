@@ -59,10 +59,12 @@
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:backgroundTint="@color/coffee_cream"
-                android:text="-"
                 android:textColor="@color/text_primary"
                 android:textSize="18sp"
-                app:cornerRadius="20dp" />
+                app:cornerRadius="20dp"
+                app:icon="@drawable/ic_remove"
+                app:iconSize="16dp"
+                app:iconGravity="textStart" />
 
             <TextView
                 android:id="@+id/quantity"
@@ -82,10 +84,12 @@
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:backgroundTint="@color/primary_color"
-                android:text="+"
                 android:textColor="@color/white"
                 android:textSize="18sp"
-                app:cornerRadius="20dp" />
+                app:cornerRadius="20dp"
+                app:icon="@drawable/ic_add"
+                app:iconSize="16dp"
+                app:iconGravity="textStart" />
 
         </LinearLayout>
 
@@ -93,13 +97,17 @@
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_remove"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="32dp"
             android:layout_marginTop="8dp"
-            android:backgroundTint="@color/error"
+            android:backgroundTint="@color/error_light"
+            android:paddingHorizontal="8dp"
             android:text="@string/remove"
-            android:textColor="@color/white"
-            android:textSize="12sp"
+            android:textColor="@color/error"
+            android:textSize="10sp"
             app:cornerRadius="16dp"
+            app:icon="@drawable/ic_delete"
+            app:iconSize="12dp"
+            app:iconTint="@color/error"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/item_price" />
 

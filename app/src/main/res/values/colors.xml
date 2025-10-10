@@ -27,6 +27,7 @@
     
     <!-- Цвета состояний -->
     <color name="error">#FF5722</color>
+    <color name="error_light">#FFCDD2</color>
     <color name="success">#4CAF50</color>
     <color name="warning">#FF9800</color>
 </resources>

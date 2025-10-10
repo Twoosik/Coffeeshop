@@ -7,14 +7,21 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import com.example.coffeeshop.R;
+import com.example.coffeeshop.adapters.CartAdapter;
 import com.example.coffeeshop.databinding.FragmentCartBinding;
+import com.example.coffeeshop.model.CartItem;
+import com.example.coffeeshop.utils.CartManager;
+import java.util.Locale;
 
 /**
- * Фрагмент для отображения корзины покупок
+ * Фрагмент корзины покупок
  */
-public class CartFragment extends Fragment {
+public class CartFragment extends Fragment implements CartAdapter.OnCartItemChangeListener {
 
     private FragmentCartBinding binding;
+    private CartAdapter cartAdapter;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
@@ -27,16 +34,30 @@ public class CartFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        // Здесь будет логика корзины
-        setupCart();
+        setupRecyclerView();
+        updateCartDisplay();
+        setupCheckoutButton();
     }
 
-    private void setupCart() {
-        // Пока что просто показываем пустую корзину
-        showEmptyCart();
+    private void setupRecyclerView() {
+        binding.recyclerCart.setLayoutManager(new LinearLayoutManager(getContext()));
+        cartAdapter = new CartAdapter(CartManager.getInstance().getCartItems());
+        cartAdapter.setOnCartItemChangeListener(this);
+        binding.recyclerCart.setAdapter(cartAdapter);
     }
 
-    private void showEmptyCart() {
+    private void updateCartDisplay() {
+        CartManager cartManager = CartManager.getInstance();
+        
+        if (cartManager.isEmpty()) {
+            showEmptyState();
+        } else {
+            showCartContent();
+            updateTotalPrice();
+        }
+    }
+
+    private void showEmptyState() {
         binding.emptyCart.setVisibility(View.VISIBLE);
         binding.cartContent.setVisibility(View.GONE);
     }
@@ -44,6 +65,38 @@ public class CartFragment extends Fragment {
     private void showCartContent() {
         binding.emptyCart.setVisibility(View.GONE);
         binding.cartContent.setVisibility(View.VISIBLE);
+    }
+
+    private void updateTotalPrice() {
+        double total = CartManager.getInstance().getTotalPrice();
+        binding.totalPrice.setText(String.format(Locale.getDefault(), "%.0f ₽", total));
+    }
+
+    private void setupCheckoutButton() {
+        binding.btnCheckout.setOnClickListener(v -> {
+            // TODO: Реализовать оформление заказа
+        });
+    }
+
+    @Override
+    public void onQuantityChanged() {
+        updateTotalPrice();
+        cartAdapter.notifyDataSetChanged();
+    }
+
+    @Override
+    public void onItemRemoved(CartItem cartItem) {
+        CartManager.getInstance().removeItem(cartItem);
+        cartAdapter.updateCartItems(CartManager.getInstance().getCartItems());
+        updateCartDisplay();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        // Обновляем корзину при возвращении на экран
+        cartAdapter.updateCartItems(CartManager.getInstance().getCartItems());
+        updateCartDisplay();
     }
 
     @Override

@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment;
 import com.example.coffeeshop.R;
 import com.example.coffeeshop.databinding.FragmentCoffeeDetailBinding;
 import com.example.coffeeshop.model.CoffeeItem;
+import com.example.coffeeshop.utils.CartManager;
 import com.example.coffeeshop.utils.ToastUtils;
 
 /**
@@ -127,6 +128,7 @@ public class CoffeeDetailFragment extends Fragment {
 
     private void setupAddToCartButton() {
         binding.btnAddToCart.setOnClickListener(v -> {
+            CartManager.getInstance().addItem(coffeeItem);
             ToastUtils.showAddedToCart(getContext(), coffeeItem.getName());
         });
     }
