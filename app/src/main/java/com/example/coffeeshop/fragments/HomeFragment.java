@@ -38,6 +38,11 @@ public class HomeFragment extends Fragment {
         binding.btnCoffeeMenu.setOnClickListener(v -> {
             Navigation.findNavController(v).navigate(R.id.action_home_to_coffee_menu);
         });
+
+        // Переход к корзине
+        binding.btnCart.setOnClickListener(v -> {
+            Navigation.findNavController(v).navigate(R.id.action_home_to_cart);
+        });
     }
 
     @Override

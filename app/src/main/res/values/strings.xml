@@ -4,6 +4,7 @@
     <!-- Главное меню -->
     <string name="menu_home">Главная</string>
     <string name="menu_coffee">Меню кофе</string>
+    <string name="menu_cart">Корзина</string>
     <string name="menu_about">О программе</string>
     <string name="menu_settings">Настройки</string>
     
@@ -31,6 +32,14 @@
     <!-- О программе -->
     <string name="about_title">О программе</string>
     <string name="about_description">Мобильное приложение для кофейни\n\nВерсия: 1.0\nДата разработки: 2025\n\nПриложение позволяет просматривать меню кофе, управлять заказами и получать информацию о кофейне.</string>
+    
+    <!-- Корзина -->
+    <string name="cart_title">Корзина</string>
+    <string name="cart_empty">Корзина пуста</string>
+    <string name="cart_empty_description">Добавьте товары из меню кофе</string>
+    <string name="cart_total">Итого:</string>
+    <string name="checkout">Оформить заказ</string>
+    <string name="remove">Удалить</string>
     
     <!-- Общие -->
     <string name="ok">ОК</string>

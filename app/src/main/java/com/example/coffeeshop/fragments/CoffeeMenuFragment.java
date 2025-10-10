@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import com.example.coffeeshop.CoffeeShopApplication;
 import com.example.coffeeshop.R;
@@ -35,7 +36,15 @@ public class CoffeeMenuFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         setupRecyclerView();
+        setupClickListeners();
         loadCoffeeItems();
+    }
+
+    private void setupClickListeners() {
+        // Переход к корзине
+        binding.fabCart.setOnClickListener(v -> {
+            Navigation.findNavController(v).navigate(R.id.action_coffee_menu_to_cart);
+        });
     }
 
     private void setupRecyclerView() {
