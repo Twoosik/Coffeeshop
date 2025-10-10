@@ -1,5 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Основные цвета -->
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    
+    <!-- Цвета кофейни -->
+    <color name="coffee_brown">#8B4513</color>
+    <color name="coffee_light">#D2B48C</color>
+    <color name="coffee_dark">#654321</color>
+    <color name="coffee_cream">#F5DEB3</color>
+    <color name="coffee_gold">#DAA520</color>
+    
+    <!-- Акцентные цвета -->
+    <color name="primary_color">#8B4513</color>
+    <color name="primary_dark">#654321</color>
+    <color name="accent_color">#DAA520</color>
+    
+    <!-- Фоновые цвета -->
+    <color name="background_light">#FFF8DC</color>
+    <color name="background_dark">#2F1B14</color>
+    
+    <!-- Текстовые цвета -->
+    <color name="text_primary">#2F1B14</color>
+    <color name="text_secondary">#8B4513</color>
+    <color name="text_light">#F5DEB3</color>
 </resources>

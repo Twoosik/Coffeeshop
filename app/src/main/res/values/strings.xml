@@ -1,46 +1,71 @@
 <resources>
-    <string name="app_name">Coffeeshop</string>
-    <string name="action_settings">Settings</string>
-    <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">First Fragment</string>
-    <string name="second_fragment_label">Second Fragment</string>
-    <string name="next">Next</string>
-    <string name="previous">Previous</string>
-
-    <string name="lorem_ipsum">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in scelerisque sem. Mauris
-        volutpat, dolor id interdum ullamcorper, risus dolor egestas lectus, sit amet mattis purus
-        dui nec risus. Maecenas non sodales nisi, vel dictum dolor. Class aptent taciti sociosqu ad
-        litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse blandit eleifend
-        diam, vel rutrum tellus vulputate quis. Aliquam eget libero aliquet, imperdiet nisl a,
-        ornare ex. Sed rhoncus est ut libero porta lobortis. Fusce in dictum tellus.\n\n
-        Suspendisse interdum ornare ante. Aliquam nec cursus lorem. Morbi id magna felis. Vivamus
-        egestas, est a condimentum egestas, turpis nisl iaculis ipsum, in dictum tellus dolor sed
-        neque. Morbi tellus erat, dapibus ut sem a, iaculis tincidunt dui. Interdum et malesuada
-        fames ac ante ipsum primis in faucibus. Curabitur et eros porttitor, ultricies urna vitae,
-        molestie nibh. Phasellus at commodo eros, non aliquet metus. Sed maximus nisl nec dolor
-        bibendum, vel congue leo egestas.\n\n
-        Sed interdum tortor nibh, in sagittis risus mollis quis. Curabitur mi odio, condimentum sit
-        amet auctor at, mollis non turpis. Nullam pretium libero vestibulum, finibus orci vel,
-        molestie quam. Fusce blandit tincidunt nulla, quis sollicitudin libero facilisis et. Integer
-        interdum nunc ligula, et fermentum metus hendrerit id. Vestibulum lectus felis, dictum at
-        lacinia sit amet, tristique id quam. Cras eu consequat dui. Suspendisse sodales nunc ligula,
-        in lobortis sem porta sed. Integer id ultrices magna, in luctus elit. Sed a pellentesque
-        est.\n\n
-        Aenean nunc velit, lacinia sed dolor sed, ultrices viverra nulla. Etiam a venenatis nibh.
-        Morbi laoreet, tortor sed facilisis varius, nibh orci rhoncus nulla, id elementum leo dui
-        non lorem. Nam mollis ipsum quis auctor varius. Quisque elementum eu libero sed commodo. In
-        eros nisl, imperdiet vel imperdiet et, scelerisque a mauris. Pellentesque varius ex nunc,
-        quis imperdiet eros placerat ac. Duis finibus orci et est auctor tincidunt. Sed non viverra
-        ipsum. Nunc quis augue egestas, cursus lorem at, molestie sem. Morbi a consectetur ipsum, a
-        placerat diam. Etiam vulputate dignissim convallis. Integer faucibus mauris sit amet finibus
-        convallis.\n\n
-        Phasellus in aliquet mi. Pellentesque habitant morbi tristique senectus et netus et
-        malesuada fames ac turpis egestas. In volutpat arcu ut felis sagittis, in finibus massa
-        gravida. Pellentesque id tellus orci. Integer dictum, lorem sed efficitur ullamcorper,
-        libero justo consectetur ipsum, in mollis nisl ex sed nisl. Donec maximus ullamcorper
-        sodales. Praesent bibendum rhoncus tellus nec feugiat. In a ornare nulla. Donec rhoncus
-        libero vel nunc consequat, quis tincidunt nisl eleifend. Cras bibendum enim a justo luctus
-        vestibulum. Fusce dictum libero quis erat maximus, vitae volutpat diam dignissim.
-    </string>
+    <string name="app_name">Кофейня</string>
+    
+    <!-- Главное меню -->
+    <string name="menu_home">Главная</string>
+    <string name="menu_coffee">Меню кофе</string>
+    <string name="menu_about">О программе</string>
+    <string name="menu_instructions">Инструкция</string>
+    <string name="menu_author">Об авторе</string>
+    <string name="menu_settings">Настройки</string>
+    
+    <!-- Авторизация -->
+    <string name="login">Вход</string>
+    <string name="logout">Выход</string>
+    <string name="username">Имя пользователя</string>
+    <string name="password">Пароль</string>
+    <string name="login_button">Войти</string>
+    <string name="login_error">Неверный логин или пароль</string>
+    
+    <!-- Роли пользователей -->
+    <string name="role_admin">Администратор</string>
+    <string name="role_user">Пользователь</string>
+    
+    <!-- Главная страница -->
+    <string name="welcome_title">Добро пожаловать в кофейню!</string>
+    <string name="welcome_subtitle">Выберите ваш любимый кофе</string>
+    
+    <!-- Меню кофе -->
+    <string name="coffee_menu_title">Наше меню</string>
+    <string name="coffee_price">Цена: %1$s ₽</string>
+    <string name="coffee_description">Описание: %1$s</string>
+    
+    <!-- О программе -->
+    <string name="about_title">О программе</string>
+    <string name="about_description">Мобильное приложение для кофейни\n\nВерсия: 1.0\nДата разработки: 2024\n\nПриложение позволяет просматривать меню кофе, управлять заказами и получать информацию о кофейне.</string>
+    
+    <!-- Инструкция -->
+    <string name="instructions_title">Инструкция пользователю</string>
+    <string name="instructions_content">1. Войдите в систему используя логин и пароль\n\n2. Просматривайте меню кофе в разделе \"Меню кофе\"\n\n3. Используйте меню для навигации по приложению\n\n4. Администраторы могут управлять меню и пользователями\n\n5. Для выхода нажмите кнопку \"Выход\" в меню</string>
+    
+    <!-- Об авторе -->
+    <string name="author_title">Об авторе</string>
+    <string name="author_name">Иванов И.И.</string>
+    <string name="author_group">Группа: ИТ-21</string>
+    <string name="author_year">Год разработки: 2024</string>
+    <string name="author_email">Email: ivanov@example.com</string>
+    
+    <!-- Общие -->
+    <string name="ok">ОК</string>
+    <string name="cancel">Отмена</string>
+    <string name="save">Сохранить</string>
+    <string name="delete">Удалить</string>
+    <string name="edit">Редактировать</string>
+    <string name="add">Добавить</string>
+    <string name="loading">Загрузка...</string>
+    <string name="error">Ошибка</string>
+    <string name="success">Успешно</string>
+    
+    <!-- Уведомления -->
+    <string name="notification_title">Кофейня</string>
+    <string name="notification_new_coffee">Новый кофе в меню!</string>
+    <string name="notification_promotion">Специальное предложение</string>
+    
+    <!-- Старые строки для совместимости -->
+    <string name="action_settings">Настройки</string>
+    <string name="first_fragment_label">Первый фрагмент</string>
+    <string name="second_fragment_label">Второй фрагмент</string>
+    <string name="next">Далее</string>
+    <string name="previous">Назад</string>
+    <string name="lorem_ipsum">Текст-заполнитель для демонстрации интерфейса.</string>
 </resources>
