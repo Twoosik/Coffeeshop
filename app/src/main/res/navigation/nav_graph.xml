@@ -33,6 +33,10 @@
             android:id="@+id/action_coffee_menu_to_home"
             app:destination="@id/HomeFragment" />
 
+        <action
+            android:id="@+id/action_coffee_menu_to_about"
+            app:destination="@id/AboutFragment" />
+
     </fragment>
 
     <!-- О программе -->
@@ -45,6 +49,10 @@
         <action
             android:id="@+id/action_about_to_home"
             app:destination="@id/HomeFragment" />
+
+        <action
+            android:id="@+id/action_about_to_coffee_menu"
+            app:destination="@id/CoffeeMenuFragment" />
 
     </fragment>
 

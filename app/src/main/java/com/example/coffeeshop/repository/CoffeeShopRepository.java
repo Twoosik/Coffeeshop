@@ -103,7 +103,7 @@ public class CoffeeShopRepository {
             
             List<CoffeeItem> coffeeItems = coffeeDao.getAllCoffeeItems();
             if (coffeeItems.size() == 0) {
-                // Добавляем базовые позиции кофе
+                // Горячие напитки
                 CoffeeItem espresso = new CoffeeItem(
                     "Эспрессо", 
                     "Классический крепкий кофе", 
@@ -140,23 +140,133 @@ public class CoffeeShopRepository {
                 );
                 coffeeDao.insertCoffeeItem(latte);
                 
-                CoffeeItem frappe = new CoffeeItem(
-                    "Фраппе", 
-                    "Холодный кофе со льдом и молоком", 
+                CoffeeItem macchiato = new CoffeeItem(
+                    "Макиато", 
+                    "Эспрессо с каплей молока", 
+                    160.0, 
+                    "", 
+                    "hot"
+                );
+                coffeeDao.insertCoffeeItem(macchiato);
+                
+                CoffeeItem mocha = new CoffeeItem(
+                    "Мокко", 
+                    "Кофе с шоколадом и молоком", 
+                    220.0, 
+                    "", 
+                    "hot"
+                );
+                coffeeDao.insertCoffeeItem(mocha);
+                
+                CoffeeItem flatWhite = new CoffeeItem(
+                    "Флэт Уайт", 
+                    "Двойной эспрессо с молоком", 
+                    190.0, 
+                    "", 
+                    "hot"
+                );
+                coffeeDao.insertCoffeeItem(flatWhite);
+                
+                CoffeeItem cortado = new CoffeeItem(
+                    "Кортадо", 
+                    "Эспрессо с равным количеством молока", 
+                    170.0, 
+                    "", 
+                    "hot"
+                );
+                coffeeDao.insertCoffeeItem(cortado);
+                
+                // Холодные напитки
+                CoffeeItem frappuccino = new CoffeeItem(
+                    "Фраппучино", 
+                    "Холодный кофейный напиток", 
+                    250.0, 
+                    "", 
+                    "cold"
+                );
+                coffeeDao.insertCoffeeItem(frappuccino);
+                
+                CoffeeItem icedCoffee = new CoffeeItem(
+                    "Айс-кофе", 
+                    "Холодный кофе со льдом", 
+                    180.0, 
+                    "", 
+                    "cold"
+                );
+                coffeeDao.insertCoffeeItem(icedCoffee);
+                
+                CoffeeItem coldBrew = new CoffeeItem(
+                    "Колд-брю", 
+                    "Кофе холодного заваривания", 
+                    200.0, 
+                    "", 
+                    "cold"
+                );
+                coffeeDao.insertCoffeeItem(coldBrew);
+                
+                CoffeeItem icedLatte = new CoffeeItem(
+                    "Айс-латте", 
+                    "Холодный латте со льдом", 
                     220.0, 
                     "", 
                     "cold"
                 );
-                coffeeDao.insertCoffeeItem(frappe);
+                coffeeDao.insertCoffeeItem(icedLatte);
                 
+                CoffeeItem affogato = new CoffeeItem(
+                    "Аффогато", 
+                    "Мороженое с горячим эспрессо", 
+                    280.0, 
+                    "", 
+                    "cold"
+                );
+                coffeeDao.insertCoffeeItem(affogato);
+                
+                // Десерты
                 CoffeeItem tiramisu = new CoffeeItem(
                     "Тирамису", 
                     "Классический итальянский десерт", 
-                    250.0, 
+                    280.0, 
                     "", 
                     "dessert"
                 );
                 coffeeDao.insertCoffeeItem(tiramisu);
+                
+                CoffeeItem cheesecake = new CoffeeItem(
+                    "Чизкейк", 
+                    "Классический десерт", 
+                    320.0, 
+                    "", 
+                    "dessert"
+                );
+                coffeeDao.insertCoffeeItem(cheesecake);
+                
+                CoffeeItem brownie = new CoffeeItem(
+                    "Брауни", 
+                    "Шоколадный десерт", 
+                    250.0, 
+                    "", 
+                    "dessert"
+                );
+                coffeeDao.insertCoffeeItem(brownie);
+                
+                CoffeeItem croissant = new CoffeeItem(
+                    "Круассан", 
+                    "Французская выпечка", 
+                    180.0, 
+                    "", 
+                    "dessert"
+                );
+                coffeeDao.insertCoffeeItem(croissant);
+                
+                CoffeeItem muffin = new CoffeeItem(
+                    "Маффин", 
+                    "Американская выпечка", 
+                    150.0, 
+                    "", 
+                    "dessert"
+                );
+                coffeeDao.insertCoffeeItem(muffin);
             }
         });
     }

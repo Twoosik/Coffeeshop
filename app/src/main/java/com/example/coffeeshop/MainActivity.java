@@ -48,7 +48,14 @@ public class MainActivity extends AppCompatActivity {
         if (id == R.id.action_about) {
             // Переход к информации о программе
             NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
-            navController.navigate(R.id.action_home_to_about);
+            
+            // Определяем текущий фрагмент и выбираем правильное действие
+            int currentDestination = navController.getCurrentDestination().getId();
+            if (currentDestination == R.id.CoffeeMenuFragment) {
+                navController.navigate(R.id.action_coffee_menu_to_about);
+            } else {
+                navController.navigate(R.id.action_home_to_about);
+            }
             return true;
         }
 

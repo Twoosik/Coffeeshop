@@ -16,32 +16,19 @@
         android:layout_height="wrap_content"
         android:padding="16dp">
 
-        <!-- Изображение кофе -->
-        <ImageView
-            android:id="@+id/coffee_image"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:background="@drawable/coffee_image_background"
-            android:scaleType="centerCrop"
-            android:src="@drawable/ic_launcher_foreground"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
         <!-- Название кофе -->
         <TextView
             android:id="@+id/coffee_name"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
             android:layout_marginEnd="8dp"
             android:text="Эспрессо"
             android:textColor="@color/text_primary"
             android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toStartOf="@id/coffee_price"
-            app:layout_constraintStart_toEndOf="@id/coffee_image"
-            app:layout_constraintTop_toTopOf="@id/coffee_image"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             tools:text="Эспрессо" />
 
         <!-- Цена -->
@@ -57,7 +44,7 @@
             android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/coffee_image"
+            app:layout_constraintTop_toTopOf="parent"
             tools:text="120 ₽" />
 
         <!-- Описание -->
@@ -65,14 +52,13 @@
             android:id="@+id/coffee_description"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:text="Классический крепкий кофе"
             android:textColor="@color/text_secondary"
             android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/coffee_image"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/coffee_name"
             tools:text="Классический крепкий кофе" />
 
@@ -81,7 +67,6 @@
             android:id="@+id/coffee_category"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:background="@drawable/category_background"
             android:paddingHorizontal="8dp"
@@ -89,20 +74,9 @@
             android:text="Горячий"
             android:textColor="@color/text_secondary"
             android:textSize="12sp"
-            app:layout_constraintStart_toEndOf="@id/coffee_image"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/coffee_description"
             tools:text="Горячий" />
-
-        <!-- Индикатор доступности -->
-        <View
-            android:id="@+id/availability_indicator"
-            android:layout_width="8dp"
-            android:layout_height="8dp"
-            android:layout_marginEnd="8dp"
-            android:background="@drawable/availability_indicator"
-            app:layout_constraintBottom_toBottomOf="@id/coffee_image"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/coffee_image" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

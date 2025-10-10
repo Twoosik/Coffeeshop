@@ -7,16 +7,21 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.navigation.Navigation;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import com.example.coffeeshop.CoffeeShopApplication;
 import com.example.coffeeshop.R;
+import com.example.coffeeshop.adapters.CoffeeAdapter;
 import com.example.coffeeshop.databinding.FragmentCoffeeMenuBinding;
+import com.example.coffeeshop.model.CoffeeItem;
+import java.util.List;
 
 /**
- * Фрагмент меню кофе с фильтрами и списком
+ * Фрагмент для отображения меню кофе
  */
 public class CoffeeMenuFragment extends Fragment {
 
     private FragmentCoffeeMenuBinding binding;
+    private CoffeeAdapter coffeeAdapter;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
@@ -29,14 +34,44 @@ public class CoffeeMenuFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        // Настройка RecyclerView (будет реализовано в следующем этапе)
         setupRecyclerView();
+        loadCoffeeItems();
     }
 
     private void setupRecyclerView() {
-        // Настройка RecyclerView будет реализована в следующем этапе
-        // Пока что показываем пустое состояние
-        showEmptyState();
+        // Настройка RecyclerView
+        binding.recyclerCoffee.setLayoutManager(new LinearLayoutManager(getContext()));
+        coffeeAdapter = new CoffeeAdapter(null);
+        binding.recyclerCoffee.setAdapter(coffeeAdapter);
+
+        // Обработчик клика по элементу (без уведомлений)
+        coffeeAdapter.setOnCoffeeItemClickListener(coffeeItem -> {
+            // Здесь можно добавить логику для детального просмотра или заказа
+        });
+    }
+
+    private void loadCoffeeItems() {
+        showLoadingState();
+        
+        // Получаем репозиторий из Application
+        CoffeeShopApplication app = (CoffeeShopApplication) getActivity().getApplication();
+        
+        // Загружаем данные в фоновом потоке
+        new Thread(() -> {
+            List<CoffeeItem> coffeeItems = app.getRepository().getAvailableCoffeeItems();
+            
+            // Обновляем UI в главном потоке
+            if (getActivity() != null) {
+                getActivity().runOnUiThread(() -> {
+                    if (coffeeItems != null && !coffeeItems.isEmpty()) {
+                        coffeeAdapter.updateCoffeeItems(coffeeItems);
+                        showCoffeeList();
+                    } else {
+                        showEmptyState();
+                    }
+                });
+            }
+        }).start();
     }
 
     private void showLoadingState() {
