@@ -30,4 +30,22 @@ public class ToastUtils {
         toast.setView(layout);
         toast.show();
     }
+
+    /**
+     * Показать уведомление об успешном оформлении заказа
+     */
+    public static void showOrderSuccess(Context context) {
+        // Создаем кастомный Toast
+        LayoutInflater inflater = LayoutInflater.from(context);
+        View layout = inflater.inflate(R.layout.toast_added_to_cart, null);
+        
+        TextView text = layout.findViewById(R.id.toast_text);
+        text.setText("Заказ успешно оформлен!");
+        
+        Toast toast = new Toast(context);
+        toast.setGravity(Gravity.BOTTOM | Gravity.CENTER_HORIZONTAL, 0, 100);
+        toast.setDuration(Toast.LENGTH_LONG);
+        toast.setView(layout);
+        toast.show();
+    }
 }

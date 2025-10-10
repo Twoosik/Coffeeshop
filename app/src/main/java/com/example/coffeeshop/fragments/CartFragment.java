@@ -13,6 +13,7 @@ import com.example.coffeeshop.adapters.CartAdapter;
 import com.example.coffeeshop.databinding.FragmentCartBinding;
 import com.example.coffeeshop.model.CartItem;
 import com.example.coffeeshop.utils.CartManager;
+import com.example.coffeeshop.utils.ToastUtils;
 import java.util.Locale;
 
 /**
@@ -74,7 +75,18 @@ public class CartFragment extends Fragment implements CartAdapter.OnCartItemChan
 
     private void setupCheckoutButton() {
         binding.btnCheckout.setOnClickListener(v -> {
-            // TODO: Реализовать оформление заказа
+            // Проверяем, что корзина не пустая
+            if (!CartManager.getInstance().isEmpty()) {
+                // Показываем уведомление об успешном заказе
+                ToastUtils.showOrderSuccess(getContext());
+                
+                // Очищаем корзину
+                CartManager.getInstance().clearCart();
+                
+                // Обновляем отображение корзины
+                cartAdapter.updateCartItems(CartManager.getInstance().getCartItems());
+                updateCartDisplay();
+            }
         });
     }
 
