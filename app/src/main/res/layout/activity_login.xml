@@ -78,7 +78,9 @@
                     android:layout_marginTop="24dp"
                     android:hint="@string/username"
                     app:boxStrokeColor="@color/primary_color"
-                    app:hintTextColor="@color/text_secondary">
+                    app:hintTextColor="@color/text_secondary"
+                    app:startIconDrawable="@drawable/ic_person"
+                    app:startIconTint="@color/primary_color">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/et_username"
@@ -98,7 +100,9 @@
                     android:hint="@string/password"
                     app:boxStrokeColor="@color/primary_color"
                     app:endIconMode="password_toggle"
-                    app:hintTextColor="@color/text_secondary">
+                    app:hintTextColor="@color/text_secondary"
+                    app:startIconDrawable="@drawable/ic_lock"
+                    app:startIconTint="@color/primary_color">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/et_password"

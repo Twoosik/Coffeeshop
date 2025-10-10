@@ -5,8 +5,6 @@
     <string name="menu_home">Главная</string>
     <string name="menu_coffee">Меню кофе</string>
     <string name="menu_about">О программе</string>
-    <string name="menu_instructions">Инструкция</string>
-    <string name="menu_author">Об авторе</string>
     <string name="menu_settings">Настройки</string>
     
     <!-- Авторизация -->
@@ -32,18 +30,7 @@
     
     <!-- О программе -->
     <string name="about_title">О программе</string>
-    <string name="about_description">Мобильное приложение для кофейни\n\nВерсия: 1.0\nДата разработки: 2024\n\nПриложение позволяет просматривать меню кофе, управлять заказами и получать информацию о кофейне.</string>
-    
-    <!-- Инструкция -->
-    <string name="instructions_title">Инструкция пользователю</string>
-    <string name="instructions_content">1. Войдите в систему используя логин и пароль\n\n2. Просматривайте меню кофе в разделе \"Меню кофе\"\n\n3. Используйте меню для навигации по приложению\n\n4. Администраторы могут управлять меню и пользователями\n\n5. Для выхода нажмите кнопку \"Выход\" в меню</string>
-    
-    <!-- Об авторе -->
-    <string name="author_title">Об авторе</string>
-    <string name="author_name">Иванов И.И.</string>
-    <string name="author_group">Группа: ИТ-21</string>
-    <string name="author_year">Год разработки: 2024</string>
-    <string name="author_email">Email: ivanov@example.com</string>
+    <string name="about_description">Мобильное приложение для кофейни\n\nВерсия: 1.0\nДата разработки: 2025\n\nПриложение позволяет просматривать меню кофе, управлять заказами и получать информацию о кофейне.</string>
     
     <!-- Общие -->
     <string name="ok">ОК</string>

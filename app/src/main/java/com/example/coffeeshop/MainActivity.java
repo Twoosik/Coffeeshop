@@ -31,11 +31,6 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
         appBarConfiguration = new AppBarConfiguration.Builder(navController.getGraph()).build();
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
-
-        // Настройка FAB для быстрого доступа к меню кофе
-        binding.fab.setOnClickListener(view -> {
-            navController.navigate(R.id.action_home_to_coffee_menu);
-        });
     }
 
     @Override
@@ -50,23 +45,10 @@ public class MainActivity extends AppCompatActivity {
         // Handle action bar item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.action_settings) {
-            // Переход к настройкам (пока что заглушка)
-            return true;
-        } else if (id == R.id.action_about) {
+        if (id == R.id.action_about) {
             // Переход к информации о программе
             NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
             navController.navigate(R.id.action_home_to_about);
-            return true;
-        } else if (id == R.id.action_instructions) {
-            // Переход к инструкции
-            NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
-            navController.navigate(R.id.action_home_to_instructions);
-            return true;
-        } else if (id == R.id.action_author) {
-            // Переход к информации об авторе
-            NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
-            navController.navigate(R.id.action_home_to_author);
             return true;
         }
 
