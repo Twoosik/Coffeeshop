@@ -66,12 +66,17 @@ public class CoffeeAdapter extends RecyclerView.Adapter<CoffeeAdapter.CoffeeView
             binding.coffeePrice.setText(String.format(Locale.getDefault(), "%.0f ₽", coffeeItem.getPrice()));
             binding.coffeeCategory.setText(getCategoryText(coffeeItem.getCategory()));
 
-            // Обработчик клика - переход к детальному просмотру
+            // Обработчик клика по карточке - переход к детальному просмотру
             binding.getRoot().setOnClickListener(v -> {
-                // Передаем данные о кофе через Bundle
                 Bundle bundle = new Bundle();
                 bundle.putSerializable("coffee_item", coffeeItem);
                 Navigation.findNavController(v).navigate(R.id.action_coffee_menu_to_coffee_detail, bundle);
+            });
+
+            // Обработчик клика по цене - добавление в корзину
+            binding.coffeePrice.setOnClickListener(v -> {
+                // TODO: Добавить логику добавления в корзину
+                // Пока что просто показываем, что цена нажата
             });
         }
 

@@ -32,7 +32,7 @@
             tools:text="Эспрессо" />
 
         <!-- Цена -->
-        <TextView
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/coffee_price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -43,6 +43,7 @@
             android:textColor="@color/white"
             android:textSize="16sp"
             android:textStyle="bold"
+            app:cornerRadius="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="120 ₽" />
