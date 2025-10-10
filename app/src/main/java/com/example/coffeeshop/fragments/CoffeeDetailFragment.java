@@ -63,7 +63,11 @@ public class CoffeeDetailFragment extends Fragment {
     private void setIngredients() {
         String ingredients;
 
-        switch (coffeeItem.getName()) {
+        // Отладочная информация
+        String coffeeName = coffeeItem.getName();
+        System.out.println("DEBUG: Coffee name = '" + coffeeName + "'");
+
+        switch (coffeeName) {
             case "Эспрессо":
                 ingredients = "• Кофейные зерна\n• Вода";
                 break;
@@ -87,9 +91,6 @@ public class CoffeeDetailFragment extends Fragment {
                 break;
             case "Кортадо":
                 ingredients = "• Эспрессо\n• Молоко (1:1)";
-                break;
-            case "Фраппучино":
-                ingredients = "• Эспрессо\n• Молоко\n• Лед\n• Сахарный сироп\n• Взбитые сливки\n• Ванильный сироп";
                 break;
             case "Айс-кофе":
                 ingredients = "• Кофе\n• Лед\n• Сахар (по желанию)";
@@ -119,7 +120,12 @@ public class CoffeeDetailFragment extends Fragment {
                 ingredients = "• Мука\n• Яйца\n• Молоко\n• Сахар\n• Растительное масло";
                 break;
             default:
-                ingredients = "• Ингредиенты не указаны";
+                // Проверяем, содержит ли название слово "фрап" или "Фрап"
+                if (coffeeName.toLowerCase().contains("фрап")) {
+                    ingredients = "• Эспрессо\n• Молоко\n• Лед\n• Сахарный сироп\n• Взбитые сливки\n• Ванильный сироп";
+                } else {
+                    ingredients = "• Ингредиенты не указаны";
+                }
                 break;
         }
 
