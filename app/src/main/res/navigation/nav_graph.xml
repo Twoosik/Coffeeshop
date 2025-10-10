@@ -108,6 +108,10 @@
             android:id="@+id/action_coffee_detail_to_cart"
             app:destination="@id/CartFragment" />
 
+        <action
+            android:id="@+id/action_coffee_detail_to_about"
+            app:destination="@id/AboutFragment" />
+
     </fragment>
 
 </navigation>

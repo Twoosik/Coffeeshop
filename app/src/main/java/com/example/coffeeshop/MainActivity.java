@@ -53,6 +53,10 @@ public class MainActivity extends AppCompatActivity {
             int currentDestination = navController.getCurrentDestination().getId();
             if (currentDestination == R.id.CoffeeMenuFragment) {
                 navController.navigate(R.id.action_coffee_menu_to_about);
+            } else if (currentDestination == R.id.CartFragment) {
+                navController.navigate(R.id.action_cart_to_about);
+            } else if (currentDestination == R.id.CoffeeDetailFragment) {
+                navController.navigate(R.id.action_coffee_detail_to_about);
             } else {
                 navController.navigate(R.id.action_home_to_about);
             }

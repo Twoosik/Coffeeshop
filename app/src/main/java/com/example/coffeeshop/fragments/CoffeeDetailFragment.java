@@ -89,7 +89,7 @@ public class CoffeeDetailFragment extends Fragment {
                 ingredients = "• Эспрессо\n• Молоко (1:1)";
                 break;
             case "Фраппучино":
-                ingredients = "• Эспрессо\n• Молоко\n• Лед\n• Сахарный сироп\n• Взбитые сливки";
+                ingredients = "• Эспрессо\n• Молоко\n• Лед\n• Сахарный сироп\n• Взбитые сливки\n• Ванильный сироп";
                 break;
             case "Айс-кофе":
                 ingredients = "• Кофе\n• Лед\n• Сахар (по желанию)";
