@@ -1,5 +1,6 @@
 package com.example.coffeeshop.utils;
 
+import android.content.Context;
 import com.example.coffeeshop.model.CartItem;
 import com.example.coffeeshop.model.CoffeeItem;
 import java.util.ArrayList;
@@ -11,6 +12,8 @@ import java.util.List;
 public class CartManager {
     private static CartManager instance;
     private List<CartItem> cartItems;
+    private FileManager fileManager;
+    private Context context;
     
     private CartManager() {
         cartItems = new ArrayList<>();
@@ -21,6 +24,12 @@ public class CartManager {
             instance = new CartManager();
         }
         return instance;
+    }
+    
+    public void setContext(Context context) {
+        this.context = context;
+        this.fileManager = new FileManager(context);
+        loadCartFromFile();
     }
     
     public List<CartItem> getCartItems() {
@@ -38,10 +47,12 @@ public class CartManager {
         
         // Если товара нет в корзине, добавляем новый
         cartItems.add(new CartItem(coffeeItem, 1));
+        saveCartToFile();
     }
     
     public void removeItem(CartItem cartItem) {
         cartItems.remove(cartItem);
+        saveCartToFile();
     }
     
     public void updateQuantity(CartItem cartItem, int quantity) {
@@ -49,6 +60,7 @@ public class CartManager {
             removeItem(cartItem);
         } else {
             cartItem.setQuantity(quantity);
+            saveCartToFile();
         }
     }
     
@@ -70,9 +82,30 @@ public class CartManager {
     
     public void clearCart() {
         cartItems.clear();
+        saveCartToFile();
     }
     
     public boolean isEmpty() {
         return cartItems.isEmpty();
+    }
+    
+    public void saveCartToFile() {
+        if (fileManager != null) {
+            List<CoffeeItem> coffeeItems = new ArrayList<>();
+            for (CartItem cartItem : cartItems) {
+                coffeeItems.add(cartItem.getCoffeeItem());
+            }
+            fileManager.saveCoffeeItems(coffeeItems);
+        }
+    }
+    
+    private void loadCartFromFile() {
+        if (fileManager != null) {
+            List<CoffeeItem> coffeeItems = fileManager.loadCoffeeItems();
+            cartItems.clear();
+            for (CoffeeItem coffeeItem : coffeeItems) {
+                addItem(coffeeItem);
+            }
+        }
     }
 }

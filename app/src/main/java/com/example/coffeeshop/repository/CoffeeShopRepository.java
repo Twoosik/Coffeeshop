@@ -6,6 +6,7 @@ import com.example.coffeeshop.data.CoffeeShopDatabase;
 import com.example.coffeeshop.data.UserDao;
 import com.example.coffeeshop.model.CoffeeItem;
 import com.example.coffeeshop.model.User;
+import com.example.coffeeshop.utils.FileManager;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -15,24 +16,52 @@ public class CoffeeShopRepository {
     private UserDao userDao;
     private CoffeeDao coffeeDao;
     private ExecutorService executor;
+    private FileManager fileManager;
     
     public CoffeeShopRepository(Application application) {
         CoffeeShopDatabase database = CoffeeShopDatabase.getDatabase(application);
         userDao = database.userDao();
         coffeeDao = database.coffeeDao();
         executor = Executors.newFixedThreadPool(2);
+        fileManager = new FileManager(application);
         
         initializeData();
     }
     
     
     public User login(String username, String password) {
-        return userDao.login(username, password);
+        User dbUser = userDao.login(username, password);
+        List<User> fileUsers = fileManager.loadUsers();
+        
+        if (!fileUsers.isEmpty()) {
+            for (User user : fileUsers) {
+                if (user.getUsername().equals(username) && user.getPassword().equals(password)) {
+                    return user;
+                }
+            }
+        }
+        
+        if (dbUser != null && fileUsers.isEmpty()) {
+            fileManager.saveUsers(userDao.getAllUsers());
+        }
+        
+        return dbUser;
     }
     
     
     public List<CoffeeItem> getAvailableCoffeeItems() {
-        return coffeeDao.getAvailableCoffeeItems();
+        List<CoffeeItem> dbItems = coffeeDao.getAvailableCoffeeItems();
+        List<CoffeeItem> fileItems = fileManager.loadCoffeeItems();
+        
+        if (!fileItems.isEmpty()) {
+            return fileItems;
+        }
+        
+        if (!dbItems.isEmpty()) {
+            fileManager.saveCoffeeItems(dbItems);
+        }
+        
+        return dbItems;
     }
     
     
@@ -42,6 +71,9 @@ public class CoffeeShopRepository {
         executor.execute(() -> {
             coffeeDao.deleteAllCoffeeItems();
             userDao.deleteAllUsers();
+            
+            fileManager.deleteFile("coffee_data.txt");
+            fileManager.deleteFile("user_data.txt");
             
             initializeDataInternal();
         });
@@ -162,5 +194,19 @@ public class CoffeeShopRepository {
             "dessert"
         );
                 coffeeDao.insertCoffeeItem(muffin);
+        
+        List<User> users = userDao.getAllUsers();
+        List<CoffeeItem> coffeeItems = coffeeDao.getAvailableCoffeeItems();
+        
+        fileManager.saveUsers(users);
+        fileManager.saveCoffeeItems(coffeeItems);
+    }
+    
+    public void saveCartToFile(List<CoffeeItem> cartItems) {
+        fileManager.saveCoffeeItems(cartItems);
+    }
+    
+    public List<CoffeeItem> loadCartFromFile() {
+        return fileManager.loadCoffeeItems();
     }
 }

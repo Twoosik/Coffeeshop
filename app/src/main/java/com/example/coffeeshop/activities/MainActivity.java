@@ -12,6 +12,7 @@ import androidx.navigation.ui.NavigationUI;
 import com.example.coffeeshop.CoffeeShopApplication;
 import com.example.coffeeshop.R;
 import com.example.coffeeshop.databinding.ActivityMainBinding;
+import com.example.coffeeshop.utils.CartManager;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -29,6 +30,8 @@ public class MainActivity extends AppCompatActivity {
 
         CoffeeShopApplication app = (CoffeeShopApplication) getApplication();
         app.getRepository().clearAndReinitializeData();
+        
+        CartManager.getInstance().setContext(this);
         
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
         appBarConfiguration = new AppBarConfiguration.Builder(navController.getGraph()).build();
