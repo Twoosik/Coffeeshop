@@ -12,7 +12,6 @@
         android:layout_height="wrap_content"
         android:padding="24dp">
 
-        <!-- Логотип кофейни -->
         <LinearLayout
             android:id="@+id/logo_container"
             android:layout_width="wrap_content"
@@ -41,7 +40,6 @@
 
         </LinearLayout>
 
-        <!-- Карточка формы входа -->
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/login_card"
             android:layout_width="0dp"
@@ -60,7 +58,6 @@
                 android:orientation="vertical"
                 android:padding="32dp">
 
-                <!-- Заголовок -->
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -70,7 +67,6 @@
                     android:textSize="24sp"
                     android:textStyle="bold" />
 
-                <!-- Поле имени пользователя -->
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/username_layout"
                     android:layout_width="match_parent"
@@ -79,7 +75,6 @@
                     android:hint="@string/username"
                     app:boxStrokeColor="@color/primary_color"
                     app:hintTextColor="@color/text_secondary"
-                    app:startIconDrawable="@drawable/ic_person"
                     app:startIconTint="@color/primary_color">
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -91,7 +86,6 @@
 
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <!-- Поле пароля -->
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/password_layout"
                     android:layout_width="match_parent"
@@ -101,7 +95,6 @@
                     app:boxStrokeColor="@color/primary_color"
                     app:endIconMode="password_toggle"
                     app:hintTextColor="@color/text_secondary"
-                    app:startIconDrawable="@drawable/ic_lock"
                     app:startIconTint="@color/primary_color">
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -113,7 +106,6 @@
 
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <!-- Кнопка входа -->
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btn_login"
                     android:layout_width="match_parent"
@@ -125,7 +117,6 @@
                     android:textSize="16sp"
                     android:textStyle="bold" />
 
-                <!-- Сообщение об ошибке -->
                 <TextView
                     android:id="@+id/tv_error"
                     android:layout_width="match_parent"
@@ -140,7 +131,6 @@
 
         </com.google.android.material.card.MaterialCardView>
 
-        <!-- Информация о тестовых аккаунтах -->
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/test_accounts_card"
             android:layout_width="0dp"

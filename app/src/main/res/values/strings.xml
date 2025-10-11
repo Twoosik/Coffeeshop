@@ -6,6 +6,8 @@
     <string name="menu_coffee">Меню кофе</string>
     <string name="menu_cart">Корзина</string>
     <string name="menu_about">О программе</string>
+    <string name="menu_instruction">Инструкция пользователю</string>
+    <string name="menu_author">Об авторе</string>
     <string name="menu_settings">Настройки</string>
     
     <!-- Авторизация -->
@@ -33,6 +35,19 @@
     <string name="about_title">О программе</string>
     <string name="about_description">Мобильное приложение для кофейни\n\nВерсия: 1.0\nДата разработки: 2025\n\nПриложение позволяет просматривать меню кофе, управлять заказами и получать информацию о кофейне.</string>
     
+    <!-- Инструкция пользователю -->
+    <string name="instruction_title">Инструкция пользователю</string>
+    <string name="instruction_content">Добро пожаловать в мобильное приложение кофейни! Это руководство поможет вам быстро освоить все функции приложения.\n\nПриложение предназначено для удобного просмотра меню кофе, управления заказами и получения информации о кофейне.</string>
+    <string name="instruction_steps">1. Авторизация: Введите логин и пароль для входа в систему\n2. Просмотр меню: Изучите доступные напитки и десерты\n3. Добавление в корзину: Нажмите на цену товара для добавления\n4. Управление корзиной: Изменяйте количество или удаляйте товары\n5. Оформление заказа: Нажмите \"Оформить заказ\" для завершения покупки</string>
+    
+    <!-- Об авторе -->
+    <string name="author_title">Об авторе</string>
+    <string name="author_name">Кирилл</string>
+    <string name="author_group">Группа: ИКБО-26-22</string>
+    <string name="author_year">Год разработки: 2025</string>
+    <string name="author_email">kirill.kipr@gmail.com</string>
+    <string name="author_description">Студент направления \"Информационные технологии\". Разработка данного приложения выполнена в рамках учебного проекта по дисциплине \"Мобильная разработка\". Приложение демонстрирует навыки работы с Android SDK, Room Database и Material Design.</string>
+    
     <!-- Корзина -->
     <string name="cart_title">Корзина</string>
     <string name="cart_empty">Корзина пуста</string>
@@ -52,16 +67,5 @@
     <string name="error">Ошибка</string>
     <string name="success">Успешно</string>
     
-    <!-- Уведомления -->
-    <string name="notification_title">Кофейня</string>
-    <string name="notification_new_coffee">Новый кофе в меню!</string>
-    <string name="notification_promotion">Специальное предложение</string>
     
-    <!-- Старые строки для совместимости -->
-    <string name="action_settings">Настройки</string>
-    <string name="first_fragment_label">Первый фрагмент</string>
-    <string name="second_fragment_label">Второй фрагмент</string>
-    <string name="next">Далее</string>
-    <string name="previous">Назад</string>
-    <string name="lorem_ipsum">Текст-заполнитель для демонстрации интерфейса.</string>
 </resources>

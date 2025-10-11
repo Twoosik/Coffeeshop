@@ -12,7 +12,6 @@
         android:layout_height="wrap_content"
         android:padding="24dp">
 
-        <!-- Заголовок приветствия -->
         <TextView
             android:id="@+id/welcome_title"
             android:layout_width="0dp"
@@ -27,7 +26,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <!-- Подзаголовок -->
         <TextView
             android:id="@+id/welcome_subtitle"
             android:layout_width="0dp"
@@ -41,7 +39,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/welcome_title" />
 
-        <!-- Карточка с информацией о кофейне -->
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/info_card"
             android:layout_width="0dp"
@@ -87,7 +84,6 @@
 
         </com.google.android.material.card.MaterialCardView>
 
-        <!-- Кнопки быстрого доступа -->
         <LinearLayout
             android:id="@+id/quick_actions"
             android:layout_width="0dp"
@@ -120,7 +116,6 @@
 
         </LinearLayout>
 
-        <!-- Статистика кофейни -->
         <LinearLayout
             android:id="@+id/stats_container"
             android:layout_width="0dp"
@@ -136,7 +131,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
                 android:layout_weight="1"
-                android:background="@drawable/stats_background"
+                android:background="@drawable/app_icon_background"
                 android:gravity="center"
                 android:orientation="vertical"
                 android:padding="16dp">
@@ -163,7 +158,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_weight="1"
-                android:background="@drawable/stats_background"
+                android:background="@drawable/app_icon_background"
                 android:gravity="center"
                 android:orientation="vertical"
                 android:padding="16dp">

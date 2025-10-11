@@ -6,4 +6,29 @@
     </style>
 
     <style name="Theme.Coffeeshop" parent="Base.Theme.Coffeeshop" />
+
+    <!-- Анимации для переходов -->
+    <style name="Animation.SlideInRight" parent="android:Animation">
+        <item name="android:duration">300</item>
+        <item name="android:fromXDelta">100%p</item>
+        <item name="android:toXDelta">0%p</item>
+    </style>
+
+    <style name="Animation.SlideOutLeft" parent="android:Animation">
+        <item name="android:duration">300</item>
+        <item name="android:fromXDelta">0%p</item>
+        <item name="android:toXDelta">-100%p</item>
+    </style>
+
+    <style name="Animation.FadeIn" parent="android:Animation">
+        <item name="android:duration">200</item>
+        <item name="android:fromAlpha">0.0</item>
+        <item name="android:toAlpha">1.0</item>
+    </style>
+
+    <style name="Animation.FadeOut" parent="android:Animation">
+        <item name="android:duration">200</item>
+        <item name="android:fromAlpha">1.0</item>
+        <item name="android:toAlpha">0.0</item>
+    </style>
 </resources>

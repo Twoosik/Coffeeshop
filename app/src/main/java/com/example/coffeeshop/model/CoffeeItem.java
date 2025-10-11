@@ -17,7 +17,7 @@ public class CoffeeItem implements Serializable {
     private String description;
     private double price;
     private String imagePath;
-    private String category; // "hot", "cold", "dessert"
+    private String category; // "hot", "dessert"
     private boolean isAvailable;
     
     public CoffeeItem() {}
@@ -89,7 +89,4 @@ public class CoffeeItem implements Serializable {
         isAvailable = available;
     }
     
-    public String getFormattedPrice() {
-        return String.format("%.0f ₽", price);
-    }
 }

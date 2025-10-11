@@ -12,12 +12,26 @@
         android:layout_height="wrap_content"
         android:padding="24dp">
 
-        <!-- Заголовок -->
+        <ImageView
+            android:id="@+id/coffee_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/app_icon_background"
+            android:padding="8dp"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:maxWidth="200dp"
+            android:maxHeight="200dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <TextView
             android:id="@+id/coffee_name"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="16dp"
             android:gravity="center"
             android:text="Эспрессо"
             android:textColor="@color/text_primary"
@@ -25,16 +39,15 @@
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/coffee_image"
             tools:text="Эспрессо" />
 
-        <!-- Категория -->
         <TextView
             android:id="@+id/coffee_category"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:background="@drawable/category_background"
+            android:background="@drawable/app_icon_background"
             android:paddingHorizontal="12dp"
             android:paddingVertical="4dp"
             android:text="Горячий напиток"
@@ -45,7 +58,6 @@
             app:layout_constraintTop_toBottomOf="@id/coffee_name"
             tools:text="Горячий напиток" />
 
-        <!-- Цена -->
         <TextView
             android:id="@+id/coffee_price"
             android:layout_width="wrap_content"
@@ -63,7 +75,6 @@
             app:layout_constraintTop_toBottomOf="@id/coffee_category"
             tools:text="120 ₽" />
 
-        <!-- Описание -->
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/description_card"
             android:layout_width="0dp"
@@ -105,7 +116,6 @@
 
         </com.google.android.material.card.MaterialCardView>
 
-        <!-- Состав -->
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/ingredients_card"
             android:layout_width="0dp"
@@ -147,7 +157,6 @@
 
         </com.google.android.material.card.MaterialCardView>
 
-        <!-- Кнопка добавления в корзину -->
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_add_to_cart"
             android:layout_width="0dp"

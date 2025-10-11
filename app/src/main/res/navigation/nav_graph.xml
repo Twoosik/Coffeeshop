@@ -24,6 +24,14 @@
             android:id="@+id/action_home_to_about"
             app:destination="@id/AboutFragment" />
 
+        <action
+            android:id="@+id/action_home_to_instruction"
+            app:destination="@id/InstructionFragment" />
+
+        <action
+            android:id="@+id/action_home_to_author"
+            app:destination="@id/AuthorFragment" />
+
     </fragment>
 
     <!-- Меню кофе -->
@@ -44,6 +52,14 @@
         <action
             android:id="@+id/action_coffee_menu_to_about"
             app:destination="@id/AboutFragment" />
+
+        <action
+            android:id="@+id/action_coffee_menu_to_instruction"
+            app:destination="@id/InstructionFragment" />
+
+        <action
+            android:id="@+id/action_coffee_menu_to_author"
+            app:destination="@id/AuthorFragment" />
 
         <action
             android:id="@+id/action_coffee_menu_to_coffee_detail"
@@ -70,6 +86,72 @@
             android:id="@+id/action_about_to_cart"
             app:destination="@id/CartFragment" />
 
+        <action
+            android:id="@+id/action_about_to_instruction"
+            app:destination="@id/InstructionFragment" />
+
+        <action
+            android:id="@+id/action_about_to_author"
+            app:destination="@id/AuthorFragment" />
+
+    </fragment>
+
+    <!-- Инструкция пользователю -->
+    <fragment
+        android:id="@+id/InstructionFragment"
+        android:name="com.example.coffeeshop.fragments.InstructionFragment"
+        android:label="@string/menu_instruction"
+        tools:layout="@layout/fragment_instruction">
+
+        <action
+            android:id="@+id/action_instruction_to_home"
+            app:destination="@id/HomeFragment" />
+
+        <action
+            android:id="@+id/action_instruction_to_coffee_menu"
+            app:destination="@id/CoffeeMenuFragment" />
+
+        <action
+            android:id="@+id/action_instruction_to_cart"
+            app:destination="@id/CartFragment" />
+
+        <action
+            android:id="@+id/action_instruction_to_about"
+            app:destination="@id/AboutFragment" />
+
+        <action
+            android:id="@+id/action_instruction_to_author"
+            app:destination="@id/AuthorFragment" />
+
+    </fragment>
+
+    <!-- Об авторе -->
+    <fragment
+        android:id="@+id/AuthorFragment"
+        android:name="com.example.coffeeshop.fragments.AuthorFragment"
+        android:label="@string/menu_author"
+        tools:layout="@layout/fragment_author">
+
+        <action
+            android:id="@+id/action_author_to_home"
+            app:destination="@id/HomeFragment" />
+
+        <action
+            android:id="@+id/action_author_to_coffee_menu"
+            app:destination="@id/CoffeeMenuFragment" />
+
+        <action
+            android:id="@+id/action_author_to_cart"
+            app:destination="@id/CartFragment" />
+
+        <action
+            android:id="@+id/action_author_to_about"
+            app:destination="@id/AboutFragment" />
+
+        <action
+            android:id="@+id/action_author_to_instruction"
+            app:destination="@id/InstructionFragment" />
+
     </fragment>
 
     <!-- Корзина -->
@@ -91,6 +173,14 @@
             android:id="@+id/action_cart_to_about"
             app:destination="@id/AboutFragment" />
 
+        <action
+            android:id="@+id/action_cart_to_instruction"
+            app:destination="@id/InstructionFragment" />
+
+        <action
+            android:id="@+id/action_cart_to_author"
+            app:destination="@id/AuthorFragment" />
+
     </fragment>
 
     <!-- Детальный просмотр кофе -->
@@ -111,6 +201,14 @@
         <action
             android:id="@+id/action_coffee_detail_to_about"
             app:destination="@id/AboutFragment" />
+
+        <action
+            android:id="@+id/action_coffee_detail_to_instruction"
+            app:destination="@id/InstructionFragment" />
+
+        <action
+            android:id="@+id/action_coffee_detail_to_author"
+            app:destination="@id/AuthorFragment" />
 
     </fragment>
 

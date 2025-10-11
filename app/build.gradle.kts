@@ -50,8 +50,8 @@ dependencies {
     implementation(libs.lifecycle.viewmodel)
     implementation(libs.lifecycle.livedata)
     
-    // Glide для загрузки изображений
-    implementation(libs.glide)
+    // Glide for image loading
+    implementation("com.github.bumptech.glide:glide:4.16.0")
     
     // Тестирование
     testImplementation(libs.junit)

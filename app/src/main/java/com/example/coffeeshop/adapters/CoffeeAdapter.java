@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.navigation.Navigation;
@@ -48,6 +50,10 @@ public class CoffeeAdapter extends RecyclerView.Adapter<CoffeeAdapter.CoffeeView
     public void onBindViewHolder(@NonNull CoffeeViewHolder holder, int position) {
         CoffeeItem coffeeItem = coffeeItems.get(position);
         holder.bind(coffeeItem);
+        
+        // Анимация появления элемента
+        Animation animation = AnimationUtils.loadAnimation(holder.itemView.getContext(), R.anim.slide_in_right);
+        holder.itemView.startAnimation(animation);
     }
 
     @Override
@@ -65,7 +71,6 @@ public class CoffeeAdapter extends RecyclerView.Adapter<CoffeeAdapter.CoffeeView
 
         public void bind(CoffeeItem coffeeItem) {
             binding.coffeeName.setText(coffeeItem.getName());
-            binding.coffeeDescription.setText(coffeeItem.getDescription());
             binding.coffeePrice.setText(String.format(Locale.getDefault(), "%.0f ₽", coffeeItem.getPrice()));
             binding.coffeeCategory.setText(getCategoryText(coffeeItem.getCategory()));
 
@@ -88,13 +93,12 @@ public class CoffeeAdapter extends RecyclerView.Adapter<CoffeeAdapter.CoffeeView
             switch (category) {
                 case "hot":
                     return "Горячий";
-                case "cold":
-                    return "Холодный";
                 case "dessert":
                     return "Десерт";
                 default:
                     return "Другое";
             }
         }
+        
     }
 }

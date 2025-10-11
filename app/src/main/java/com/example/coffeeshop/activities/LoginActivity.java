@@ -6,14 +6,9 @@ import android.view.View;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.coffeeshop.CoffeeShopApplication;
-import com.example.coffeeshop.MainActivity;
-import com.example.coffeeshop.R;
 import com.example.coffeeshop.databinding.ActivityLoginBinding;
 import com.example.coffeeshop.model.User;
 
-/**
- * Activity для авторизации пользователей
- */
 public class LoginActivity extends AppCompatActivity {
 
     private ActivityLoginBinding binding;
@@ -49,7 +44,6 @@ public class LoginActivity extends AppCompatActivity {
             return false;
         }
 
-        // Очистка ошибок
         binding.usernameLayout.setError(null);
         binding.passwordLayout.setError(null);
         binding.tvError.setVisibility(View.GONE);
@@ -58,25 +52,20 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void performLogin(String username, String password) {
-        // Получаем репозиторий из Application
         CoffeeShopApplication app = (CoffeeShopApplication) getApplication();
         
-        // Выполняем авторизацию в фоновом потоке
         new Thread(() -> {
             User user = app.getRepository().login(username, password);
             
             runOnUiThread(() -> {
                 if (user != null) {
-                    // Успешная авторизация
                     Toast.makeText(this, "Добро пожаловать, " + user.getUsername() + "!", Toast.LENGTH_SHORT).show();
                     
-                    // Переход к главному экрану
                     Intent intent = new Intent(this, MainActivity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     startActivity(intent);
                     finish();
                 } else {
-                    // Неудачная авторизация
                     showError("Неверный логин или пароль");
                 }
             });

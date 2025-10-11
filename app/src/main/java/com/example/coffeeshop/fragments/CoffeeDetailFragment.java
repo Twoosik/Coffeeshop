@@ -7,15 +7,14 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import com.example.coffeeshop.R;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
+import com.bumptech.glide.request.RequestOptions;
 import com.example.coffeeshop.databinding.FragmentCoffeeDetailBinding;
 import com.example.coffeeshop.model.CoffeeItem;
 import com.example.coffeeshop.utils.CartManager;
 import com.example.coffeeshop.utils.ToastUtils;
 
-/**
- * Фрагмент для детального просмотра информации о кофе
- */
 public class CoffeeDetailFragment extends Fragment {
 
     private FragmentCoffeeDetailBinding binding;
@@ -32,7 +31,6 @@ public class CoffeeDetailFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        // Получаем данные о кофе из аргументов
         if (getArguments() != null) {
             coffeeItem = (CoffeeItem) getArguments().getSerializable("coffee_item");
         }
@@ -44,28 +42,22 @@ public class CoffeeDetailFragment extends Fragment {
     }
 
     private void displayCoffeeDetails() {
-        // Название
         binding.coffeeName.setText(coffeeItem.getName());
 
-        // Категория
         binding.coffeeCategory.setText(getCategoryText(coffeeItem.getCategory()));
 
-        // Цена
         binding.coffeePrice.setText(String.format("%.0f ₽", coffeeItem.getPrice()));
 
-        // Описание
         binding.coffeeDescription.setText(coffeeItem.getDescription());
 
-        // Состав
         setIngredients();
+        
+        loadCoffeeImage(coffeeItem.getImagePath());
     }
 
     private void setIngredients() {
         String ingredients;
-
-        // Отладочная информация
         String coffeeName = coffeeItem.getName();
-        System.out.println("DEBUG: Coffee name = '" + coffeeName + "'");
 
         switch (coffeeName) {
             case "Эспрессо":
@@ -83,26 +75,8 @@ public class CoffeeDetailFragment extends Fragment {
             case "Макиато":
                 ingredients = "• Эспрессо\n• Молоко";
                 break;
-            case "Мокко":
-                ingredients = "• Эспрессо\n• Молоко\n• Шоколадный сироп\n• Взбитые сливки";
-                break;
             case "Флэт Уайт":
                 ingredients = "• Двойной эспрессо\n• Молоко";
-                break;
-            case "Кортадо":
-                ingredients = "• Эспрессо\n• Молоко (1:1)";
-                break;
-            case "Айс-кофе":
-                ingredients = "• Кофе\n• Лед\n• Сахар (по желанию)";
-                break;
-            case "Колд-брю":
-                ingredients = "• Кофейные зерна\n• Холодная вода\n• Лед";
-                break;
-            case "Айс-латте":
-                ingredients = "• Эспрессо\n• Молоко\n• Лед";
-                break;
-            case "Аффогато":
-                ingredients = "• Ванильное мороженое\n• Горячий эспрессо";
                 break;
             case "Тирамису":
                 ingredients = "• Маскарпоне\n• Кофе\n• Песочное печенье\n• Какао";
@@ -120,7 +94,6 @@ public class CoffeeDetailFragment extends Fragment {
                 ingredients = "• Мука\n• Яйца\n• Молоко\n• Сахар\n• Растительное масло";
                 break;
             default:
-                // Проверяем, содержит ли название слово "фрап" или "Фрап"
                 if (coffeeName.toLowerCase().contains("фрап")) {
                     ingredients = "• Эспрессо\n• Молоко\n• Лед\n• Сахарный сироп\n• Взбитые сливки\n• Ванильный сироп";
                 } else {
@@ -143,12 +116,22 @@ public class CoffeeDetailFragment extends Fragment {
         switch (category) {
             case "hot":
                 return "Горячий напиток";
-            case "cold":
-                return "Холодный напиток";
             case "dessert":
                 return "Десерт";
             default:
                 return "Другое";
+        }
+    }
+    
+    private void loadCoffeeImage(String imageUrl) {
+        if (imageUrl != null && !imageUrl.isEmpty()) {
+            Glide.with(this)
+                .load(imageUrl)
+                .apply(new RequestOptions()
+                    .transform(new RoundedCorners(16)))
+                .into(binding.coffeeImage);
+        } else {
+            binding.coffeeImage.setVisibility(View.GONE);
         }
     }
 
