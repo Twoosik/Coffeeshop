@@ -37,15 +37,14 @@ public class CartManager {
     }
     
     public void addItem(CoffeeItem coffeeItem) {
-        // Проверяем, есть ли уже такой товар в корзине
         for (CartItem cartItem : cartItems) {
             if (cartItem.getCoffeeItem().getId() == coffeeItem.getId()) {
                 cartItem.incrementQuantity();
+                saveCartToFile();
                 return;
             }
         }
         
-        // Если товара нет в корзине, добавляем новый
         cartItems.add(new CartItem(coffeeItem, 1));
         saveCartToFile();
     }
@@ -82,7 +81,9 @@ public class CartManager {
     
     public void clearCart() {
         cartItems.clear();
-        saveCartToFile();
+        if (fileManager != null) {
+            fileManager.deleteFile("cart_data.txt");
+        }
     }
     
     public boolean isEmpty() {
@@ -93,18 +94,32 @@ public class CartManager {
         if (fileManager != null) {
             List<CoffeeItem> coffeeItems = new ArrayList<>();
             for (CartItem cartItem : cartItems) {
-                coffeeItems.add(cartItem.getCoffeeItem());
+                for (int i = 0; i < cartItem.getQuantity(); i++) {
+                    coffeeItems.add(cartItem.getCoffeeItem());
+                }
             }
-            fileManager.saveCoffeeItems(coffeeItems);
+            fileManager.saveCartItems(coffeeItems);
         }
     }
     
     private void loadCartFromFile() {
         if (fileManager != null) {
-            List<CoffeeItem> coffeeItems = fileManager.loadCoffeeItems();
+            List<CoffeeItem> coffeeItems = fileManager.loadCartItems();
             cartItems.clear();
+            
             for (CoffeeItem coffeeItem : coffeeItems) {
-                addItem(coffeeItem);
+                boolean found = false;
+                for (CartItem cartItem : cartItems) {
+                    if (cartItem.getCoffeeItem().getId() == coffeeItem.getId()) {
+                        cartItem.incrementQuantity();
+                        found = true;
+                        break;
+                    }
+                }
+                
+                if (!found) {
+                    cartItems.add(new CartItem(coffeeItem, 1));
+                }
             }
         }
     }

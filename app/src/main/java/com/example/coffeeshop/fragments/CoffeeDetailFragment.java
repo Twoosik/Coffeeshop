@@ -14,6 +14,7 @@ import com.example.coffeeshop.databinding.FragmentCoffeeDetailBinding;
 import com.example.coffeeshop.model.CoffeeItem;
 import com.example.coffeeshop.utils.CartManager;
 import com.example.coffeeshop.utils.ToastUtils;
+import com.example.coffeeshop.utils.CartAnimationUtils;
 
 public class CoffeeDetailFragment extends Fragment {
 
@@ -108,7 +109,7 @@ public class CoffeeDetailFragment extends Fragment {
     private void setupAddToCartButton() {
         binding.btnAddToCart.setOnClickListener(v -> {
             CartManager.getInstance().addItem(coffeeItem);
-            ToastUtils.showAddedToCart(getContext(), coffeeItem.getName());
+            CartAnimationUtils.animateAddToCart(binding.getRoot(), coffeeItem.getName(), null);
         });
     }
 

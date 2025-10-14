@@ -11,7 +11,7 @@ import com.example.coffeeshop.R;
 import com.example.coffeeshop.databinding.FragmentInstructionBinding;
 
 /**
- * Фрагмент с инструкцией пользователю
+ * Фрагмент для отображения инструкции пользователю
  */
 public class InstructionFragment extends Fragment {
 
@@ -28,8 +28,9 @@ public class InstructionFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         
-        // Фрагмент готов к использованию
-        // Вся информация уже настроена в макете через строковые ресурсы
+        // Устанавливаем текст инструкции
+        binding.instructionContent.setText(getString(R.string.instruction_content));
+        binding.instructionSteps.setText(getString(R.string.instruction_steps));
     }
 
     @Override

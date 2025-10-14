@@ -41,14 +41,12 @@ public class CoffeeMenuFragment extends Fragment {
     }
 
     private void setupClickListeners() {
-        // Переход к корзине
         binding.fabCart.setOnClickListener(v -> {
             Navigation.findNavController(v).navigate(R.id.action_coffee_menu_to_cart);
         });
     }
 
     private void setupRecyclerView() {
-        // Настройка RecyclerView
         binding.recyclerCoffee.setLayoutManager(new LinearLayoutManager(getContext()));
         coffeeAdapter = new CoffeeAdapter(null);
         binding.recyclerCoffee.setAdapter(coffeeAdapter);
@@ -57,14 +55,11 @@ public class CoffeeMenuFragment extends Fragment {
     private void loadCoffeeItems() {
         showLoadingState();
         
-        // Получаем репозиторий из Application
         CoffeeShopApplication app = (CoffeeShopApplication) getActivity().getApplication();
         
-        // Загружаем данные в фоновом потоке
         new Thread(() -> {
             List<CoffeeItem> coffeeItems = app.getRepository().getAvailableCoffeeItems();
             
-            // Обновляем UI в главном потоке
             if (getActivity() != null) {
                 getActivity().runOnUiThread(() -> {
                     if (coffeeItems != null && !coffeeItems.isEmpty()) {
@@ -95,6 +90,7 @@ public class CoffeeMenuFragment extends Fragment {
         binding.recyclerCoffee.setVisibility(View.VISIBLE);
         binding.emptyState.setVisibility(View.GONE);
     }
+
 
     @Override
     public void onDestroyView() {

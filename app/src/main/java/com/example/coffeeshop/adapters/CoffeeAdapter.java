@@ -14,8 +14,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.coffeeshop.R;
 import com.example.coffeeshop.databinding.ItemCoffeeBinding;
 import com.example.coffeeshop.model.CoffeeItem;
-import com.example.coffeeshop.utils.CartManager;
-import com.example.coffeeshop.utils.ToastUtils;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import java.util.List;
 import java.util.Locale;
 
@@ -51,7 +51,6 @@ public class CoffeeAdapter extends RecyclerView.Adapter<CoffeeAdapter.CoffeeView
         CoffeeItem coffeeItem = coffeeItems.get(position);
         holder.bind(coffeeItem);
         
-        // Анимация появления элемента
         Animation animation = AnimationUtils.loadAnimation(holder.itemView.getContext(), R.anim.slide_in_right);
         holder.itemView.startAnimation(animation);
     }
@@ -74,18 +73,16 @@ public class CoffeeAdapter extends RecyclerView.Adapter<CoffeeAdapter.CoffeeView
             binding.coffeePrice.setText(String.format(Locale.getDefault(), "%.0f ₽", coffeeItem.getPrice()));
             binding.coffeeCategory.setText(getCategoryText(coffeeItem.getCategory()));
 
-            // Обработчик клика по карточке - переход к детальному просмотру
             binding.getRoot().setOnClickListener(v -> {
                 Bundle bundle = new Bundle();
                 bundle.putSerializable("coffee_item", coffeeItem);
                 Navigation.findNavController(v).navigate(R.id.action_coffee_menu_to_coffee_detail, bundle);
             });
 
-            // Обработчик клика по цене - добавление в корзину
             binding.coffeePrice.setOnClickListener(v -> {
-                Context context = v.getContext();
-                CartManager.getInstance().addItem(coffeeItem);
-                ToastUtils.showAddedToCart(context, coffeeItem.getName());
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("coffee_item", coffeeItem);
+                Navigation.findNavController(v).navigate(R.id.action_coffee_menu_to_coffee_detail, bundle);
             });
         }
 

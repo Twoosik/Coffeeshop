@@ -43,7 +43,7 @@ public class LoginActivity extends AppCompatActivity {
             binding.passwordLayout.setError("Введите пароль");
             return false;
         }
-
+        //очистка ошибок
         binding.usernameLayout.setError(null);
         binding.passwordLayout.setError(null);
         binding.tvError.setVisibility(View.GONE);

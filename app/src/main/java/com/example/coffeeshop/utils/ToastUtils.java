@@ -9,7 +9,7 @@ import android.widget.Toast;
 import com.example.coffeeshop.R;
 
 /**
- * Утилиты для создания кастомных уведомлений
+ * Утилиты для создания уведомлений
  */
 public class ToastUtils {
 
@@ -17,7 +17,6 @@ public class ToastUtils {
      * Показать уведомление о добавлении товара в корзину
      */
     public static void showAddedToCart(Context context, String itemName) {
-        // Создаем кастомный Toast
         LayoutInflater inflater = LayoutInflater.from(context);
         View layout = inflater.inflate(R.layout.toast_added_to_cart, null);
         
@@ -35,7 +34,7 @@ public class ToastUtils {
      * Показать уведомление об успешном оформлении заказа
      */
     public static void showOrderSuccess(Context context) {
-        // Создаем кастомный Toast
+
         LayoutInflater inflater = LayoutInflater.from(context);
         View layout = inflater.inflate(R.layout.toast_added_to_cart, null);
         
