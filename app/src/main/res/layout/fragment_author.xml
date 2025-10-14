@@ -41,11 +41,10 @@
 
             <ImageView
                 android:id="@+id/author_photo"
-                android:layout_width="120dp"
-                android:layout_height="120dp"
-                android:background="@drawable/app_icon_background"
+                android:layout_width="154dp"
+                android:layout_height="172dp"
+                android:background="@drawable/photo"
                 android:padding="16dp"
-                android:src="@drawable/ic_launcher_foreground"
                 android:scaleType="centerCrop" />
 
         </LinearLayout>
@@ -118,34 +117,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/author_info_card">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="20dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="О разработчике:"
-                    android:textColor="@color/text_primary"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
-                    android:text="@string/author_description"
-                    android:textColor="@color/text_secondary"
-                    android:textSize="14sp"
-                    android:lineSpacingExtra="4dp" />
-
-            </LinearLayout>
-
-        </com.google.android.material.card.MaterialCardView>
+            app:layout_constraintTop_toBottomOf="@id/author_info_card"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

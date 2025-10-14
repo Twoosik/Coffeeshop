@@ -37,16 +37,7 @@
             android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/about_title">
-
-            <ImageView
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:background="@drawable/app_icon_background"
-                android:padding="16dp"
-                android:src="@drawable/ic_launcher_foreground" />
-
-        </LinearLayout>
+            app:layout_constraintTop_toBottomOf="@id/about_title"/>
 
         <!-- Описание программы -->
         <com.google.android.material.card.MaterialCardView
